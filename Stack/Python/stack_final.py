@@ -10,10 +10,13 @@ class Node:
         return self.next_node
     
 class Stack:
-    def __init__(self, limit = 1000):
-        self.top_item = None
-        self.size = 0
+    def __init__(self, limit = 1000, top_item = None):
+        self.top_item = Node(top_item)
+        self.size = 1
         self.limit = limit
+        
+        if self.top_item == None:
+            self.size = 0
         
     def has_space(self):
         return self.limit > self.size
@@ -45,7 +48,7 @@ class Stack:
             return item_to_remove.get_value()
         print("Nothing to pop here")
         
-stack1 = Stack(10)
+stack1 = Stack(10, 0)
 stack1.push(1)
 stack1.push(2)
 stack1.push(3)
@@ -70,6 +73,11 @@ stack1.pop()
 
 print("Peeked and saw:", stack1.peek())
 
+stack1.pop()
+
+print("Peeked and saw:", stack1.peek())
+
+stack1.pop()
 stack1.pop()
 
 print("Peeked and saw:", stack1.peek())
