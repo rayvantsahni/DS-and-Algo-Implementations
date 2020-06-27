@@ -1,3 +1,4 @@
+# node class
 class Node:
     def __init__(self, value, next_node = None):
         self.value = value
@@ -8,7 +9,8 @@ class Node:
     
     def get_next_node(self):
         return self.next_node
-    
+
+# stack class
 class Stack:
     def __init__(self, limit = 1000, top_item = None):
         self.top_item = Node(top_item)
@@ -18,17 +20,21 @@ class Stack:
         if self.top_item == None:
             self.size = 0
         
+    # checks if the stack has any space left
     def has_space(self):
         return self.limit > self.size
     
+    # checks if the stack is empty
     def is_empty(self):
         return self.size == 0
         
+    # peeks and returns the top most value of the stack
     def peek(self):
         if not self.is_empty():
             return self.top_item.get_value()
         return "Nothing"
 
+    # pushes/adds an item to the top of the stack
     def push(self, value):
         if self.has_space():
             new_item = Node(value)
@@ -38,7 +44,8 @@ class Stack:
             print("Adding ", value, " to the Stack", sep = "")
         else:
             print("No space left :(")
-        
+       
+    # pops/removes the top most item from the stack
     def pop(self):
         if not self.is_empty():
             item_to_remove = self.top_item
