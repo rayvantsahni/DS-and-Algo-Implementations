@@ -68,6 +68,9 @@ class LinkedList:
      
     # gives the value at a particular index
     def value_at_index(self, index):
+        if index >= self.get_length():
+            return "Index out of range"
+        
         current_index = 0
         current_node = self.head_node
         while current_node.get_next_node != None:
@@ -87,20 +90,21 @@ ll.insert_beginning(60)
 ll.insert_beginning(70)
 
 print("new linked list:\n", ll.display(), sep = "")
-print("length is ", ll.get_length(), sep = "")
+print("length is ", ll.get_length(), sep = "", end = "\n\n")
 
 ll.remove_node(30)
+ll.remove_node(60)
+ll.remove_node(10)
+ll.remove_node(70)
 print("after deletion:\n", ll.display(), sep = "")
-print("length is ", ll.get_length(), sep = "")
+print("length is ", ll.get_length(), sep = "", end = "\n\n")
 
 ll.insert_end(0)
 ll.insert_end(-10)
 print("after adding element(s) in the end:\n", ll.display(), sep = "")
-print("length is ", ll.get_length(), sep = "")
+print("length is ", ll.get_length(), sep = "", end = "\n\n")
         
-
 print("value is:", ll.value_at_index(0))
-print("value is:", ll.value_at_index(2))
+print("value is:", ll.value_at_index(4))
 print("value is:", ll.value_at_index(7))
 print("value is:", ll.value_at_index(1))
-        
