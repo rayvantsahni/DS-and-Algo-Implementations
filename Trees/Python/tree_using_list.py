@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jul 16 20:11:41 2020
-
-@author: Rayvant Sahni
-"""
-
 class TreeNode:
     def __init__(self, value):
         self.value = value
