@@ -72,7 +72,6 @@ tree.display_preorder(tree.root)
 print("\nPOSTORDER Traversal:")
 tree.display_postorder(tree.root)
 
-
 '''
          ROOT
        /     \
