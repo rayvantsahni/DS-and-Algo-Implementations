@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jul 22 00:18:48 2020
-
-@author: Rayvant Sahni
-"""
-
 class MinHeap:
     def __init__(self):
         self.heap_list = [None] #stores the elements of the heap in the form of a list
@@ -115,16 +108,3 @@ heap.retrieve_min()
 heap.retrieve_min()
 
 print(heap)
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
