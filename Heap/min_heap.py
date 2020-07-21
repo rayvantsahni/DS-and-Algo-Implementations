@@ -25,11 +25,13 @@ class MinHeap:
     def child_exists(self, index): #checks if a particular element has a child as of yet
         return self.get_left_child_index(index) <= self.element_count
         
+    
     def add(self, element): #to add an element to the heap
         print("\nAdding", element, "to", self.heap_list)
         self.element_count += 1
         self.heap_list.append(element)
         self.heapify_up()
+        
         
     def heapify_up(self): #comes into action when an element is added to the heap; checks if any parent has a value greater than the child
         print("HEAPIFYING UP..")
@@ -75,7 +77,6 @@ class MinHeap:
                 return self.get_right_child_index(index)
         
             
-            
     def retrieve_min(self): #removes the minimum value of the heap, i.e the value present at the root
         if self.element_count == 0: #checking if the root is empty or not
             print("Heap is Empty.")
@@ -89,6 +90,7 @@ class MinHeap:
         print("Last element moved to first:", self.heap_list)
         self.heapify_down()
         return
+
 
 
 heap = MinHeap()
