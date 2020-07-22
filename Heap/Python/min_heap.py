@@ -1,10 +1,10 @@
 class MinHeap:
     def __init__(self):
-        self.heap_list = [None] #stores the elements of the heap in the form of a list
+        self.heap_list = [None] #stores the elements of the heap in the form of a list; we place a None in the list so that we can store our elements starting from index 1, this makes it easy to apply the formulas for finding left child, right child and parent of a node
         self.element_count = 0 #stores the number of elements
         
     def __repr__(self): #to print/show the elements of the heap list when we print the object of the MinHeap class
-        return "\nHeap List - " + str(self.heap_list)
+        return "\nHeap List - " + str(self.heap_list[1:])
         
     def get_parent_index(self, index): #gives the index of the parent of an element in the list,i.e floor(index of child / 2)
         return index // 2
@@ -19,11 +19,13 @@ class MinHeap:
         return self.get_left_child_index(index) <= self.element_count
         
     
+    
     def add(self, element): #to add an element to the heap
-        print("\nAdding", element, "to", self.heap_list)
+        print("\nAdding", element, "to", self.heap_list[1:])
         self.element_count += 1
         self.heap_list.append(element)
         self.heapify_up()
+        
         
         
     def heapify_up(self): #comes into action when an element is added to the heap; checks if any parent has a value greater than the child
@@ -34,14 +36,15 @@ class MinHeap:
             if flag: #this breaks the loop if the program enters the 'else' condition, i.e no more swaps required
                 break #breaks the while loop
             if self.heap_list[self.get_parent_index(index)] > self.heap_list[index]: #if the parent is greater than the child, then the elements are swapped
-                # print("Swapping-\n", " Parent:", self.heap_list[self.get_parent_index(index)], "and Child:", self.heap_list[index], end = "\n")
+                print("Swapping", self.heap_list[self.get_parent_index(index)], "and", self.heap_list[index], end = "\n")
                 self.heap_list[self.get_parent_index(index)], self.heap_list[index] = self.heap_list[index], self.heap_list[self.get_parent_index(index)] #swapping the elements of the parent and the child
             else:
                 flag = True #changes the flag to True so that the loop can be broken
             index = self.get_parent_index(index) #replacing the old index, i.e the index with which we started, with the new one, i.e the index of the parent of the original position of the element
-        print("Heap property restored:", self.heap_list)
+        print("Heap property restored:", self.heap_list[1:])
             
              
+        
     def heapify_down(self): #comes into action when the minimum element is removed from the heap; checks if any child has a value less than the parent
         index = 1 #makes the index to start with, equal to the index of the first element in the heap list
         
@@ -52,12 +55,13 @@ class MinHeap:
             if self.heap_list[index] > self.heap_list[smaller_child_index]: #if the child is less than the parent, then the elements are swapped
                 self.heap_list[index], self.heap_list[smaller_child_index] = self.heap_list[smaller_child_index], self.heap_list[index] #swapping the elements of the child and the parent
             index = smaller_child_index
-        print("Heap property restored:", self.heap_list)
+        print("Heap property restored:", self.heap_list[1:])
             
+        
             
     def get_smaller_child_index(self, index): #returns the child which contains a smaller value
         if self.get_right_child_index(index) > self.element_count: #checks if the right child exists or not
-            print("Only left child exists")
+            print("<only left child exists>")
             return self.get_left_child_index(index)
         else:
             left_child_value = self.heap_list[self.get_left_child_index(index)]
@@ -69,6 +73,7 @@ class MinHeap:
                 print("<right child is smaller>")
                 return self.get_right_child_index(index)
         
+        
             
     def retrieve_min(self): #removes the minimum value of the heap, i.e the value present at the root
         if self.element_count == 0: #checking if the root is empty or not
@@ -76,11 +81,11 @@ class MinHeap:
             return
         
         min = self.heap_list[1]
-        print("\nRemoving", min, "from", self.heap_list)
+        print("\nRemoving", min, "from", self.heap_list[1:])
         self.heap_list[1], self.heap_list[-1] = self.heap_list[-1], self.heap_list[1] #swapping the last added element of the heap list with the first element/root
         self.heap_list.pop() #removing the minimum value from the heap list
         self.element_count -= 1
-        print("Last element moved to first:", self.heap_list)
+        print("Last element moved to first:", self.heap_list[1:])
         self.heapify_down()
         return
 
