@@ -1,5 +1,6 @@
 Graphs are an essential data structure in computer science for modeling networks.
 
+Important Terms-
 vertex: A node in a graph.
 edge: A connection between two vertices.
 adjacent: When an edge exists between vertices.
@@ -10,3 +11,14 @@ directed: Graph where travel between vertices can be restricted to a single dire
 cycle: A path which begins and ends at the same vertex.
 adjacency matrix: Graph representation where vertices are both the rows and the columns. Each cell represents a possible edge.
 adjacency list: Graph representation where each vertex has a list of all the vertices it shares an edge with.
+
+
+What do they know and what can they do-
+Vertex stores some data.
+Vertex stores the edges to connected vertices and their weight.
+Vertex can add a new edge to its collection.
+Graph stores all the vertices.
+Graph knows if it is directed or undirected.
+Graph can add a new vertex to its collection.
+Graph can add a new edge between stored vertices.
+Graph can tell whether a path exists between stored vertices.
