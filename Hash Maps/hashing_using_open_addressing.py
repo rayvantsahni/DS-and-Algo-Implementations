@@ -4,9 +4,7 @@ class HashMap:
         self.array = [None] * size
         
     def hash(self, key, count_collisions = 0):
-        key_bytes = key.encode()
-        hash_code = sum(key_bytes)
-        return hash_code + count_collisions
+        return sum(key.encode()) + count_collisions
     
     def compressor(self, hash_code):
         return hash_code % self.array_size
