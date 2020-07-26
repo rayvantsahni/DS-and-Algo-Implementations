@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jul 26 23:37:11 2020
-
-@author: Rayvant Sahni
-"""
-
 class Node:
     def __init__(self, value):
         self.value = value
@@ -19,6 +12,8 @@ class Node:
     
     def get_value(self):
         return self.value
+    
+    
     
     
 class DoublyLinkedList:
