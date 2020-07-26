@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Jul 25 21:06:06 2020
-
-@author: Rayvant Sahni
-"""
-
 class HashMap:
     def __init__(self, size):
         self.array_size = size
@@ -39,9 +32,7 @@ class HashMap:
                         new_array_value[1] = value
                         return
                     number_of_collisions += 1
-                            
-                    
-                
+                             
     def retrieve(self, key):
         potential_index = self.compressor(self.hash(key))
         possible_return_value = self.array[potential_index]
