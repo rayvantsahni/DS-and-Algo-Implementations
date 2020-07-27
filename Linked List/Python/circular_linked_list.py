@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jul 27 19:33:20 2020
-
-@author: Rayvant Sahni
-"""
-
 class Node:
     def __init__(self, value):
         self.value = value
@@ -126,7 +119,6 @@ class CircularLinkedList:
             
             
             
-            
 c = CircularLinkedList()
 
 c.prepend(40)
@@ -150,7 +142,3 @@ c.remove(-5)
 print("\nAfter Removal...")
 c.print_list()
 print("LENGTH:", c.length())
-
-            
-
-            
