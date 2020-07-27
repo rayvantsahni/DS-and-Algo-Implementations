@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jul 26 23:37:11 2020
+
+@author: Rayvant Sahni
+"""
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -12,8 +19,6 @@ class Node:
     
     def get_value(self):
         return self.value
-    
-    
     
     
 class DoublyLinkedList:
@@ -151,6 +156,9 @@ class DoublyLinkedList:
         
         
     def reverse(self): #reverses the list
+        if not self.head:
+            print("List has nothing to reverse.")
+            return
         temp_node = None
         current_node = self.head
         while current_node:
@@ -169,28 +177,55 @@ class DoublyLinkedList:
             count += 1
             current_node = current_node.get_next()
         return count
+    
+    
+    def remove_duplicates(self): #removes any duplicates if any, in the list
+        if not self.head or not self.head.get_next():
+            print("List has no duplicates to remove")
+            return
+        current_node = self.head.get_next()
+        previous_node = self.head
+        
+        keys = set([previous_node.get_value()])
+        while current_node:
+            if current_node.get_value() in keys:
+                previous_node.next = current_node.get_next()
+                if current_node.get_next():
+                    current_node.get_next().prev = previous_node 
+                current_node = current_node.get_next()
+            else:
+                keys.add(current_node.get_value())
+                previous_node = current_node
+                current_node = previous_node.get_next()
 
     
     def print_list(self): #prints out the elements of the list
         current_node = self.head
+        print('-' * 12)
+        print("LINKED LIST")
+        print('-' * 12)
         while current_node:
-            print(current_node.get_value(), end = "  ")
+            print(current_node.get_value())
             current_node = current_node.get_next()
+        
             
             
             
             
 d = DoublyLinkedList()
 
-d.append(1)
-d.append(2)
-d.append(3)
+d.prepend(-1)
+d.prepend(-2)
 d.prepend(0)
 d.append(4)
 d.prepend(-1)
 d.prepend(-2)
+d.prepend(-1)
+d.prepend(-2)
 d.prepend(-3)
 d.append(5)
+d.prepend(-1)
+d.prepend(-2)
 
 print("Length is:", d.get_length())
 
@@ -206,8 +241,9 @@ d.delete(5)
 d.delete(2)
 
 d.print_list()
-
-print()
     
 d.reverse()
+d.print_list()
+
+d.remove_duplicates()
 d.print_list()
