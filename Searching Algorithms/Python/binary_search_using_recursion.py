@@ -22,7 +22,7 @@ def binary_search(search_list, left, right, target):
 def main():
     from random import sample
     
-    search_list = sorted(sample([i for i in range(20)], 10))
+    search_list = sorted(sample([i for i in range(30)], 10))
     search_value = 10
     
     print(search_list, end = "\n\n")
