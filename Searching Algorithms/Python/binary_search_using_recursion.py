@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jul 29 15:50:13 2020
-
-@author: Rayvant Sahni
-"""
-
 def binary_search(search_list, left, right, target):
     if left > right:
         return "Not Found!"
