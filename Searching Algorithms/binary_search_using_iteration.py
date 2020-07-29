@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jul 29 04:51:20 2020
-
-@author: Rayvant Sahni
-"""
-
 def binary_search(search_list, target):
     left_index = 0
     right_index = len(search_list) - 1
@@ -33,4 +26,3 @@ def main():
     print(binary_search(search_list, search_value))
     
 main()
-
