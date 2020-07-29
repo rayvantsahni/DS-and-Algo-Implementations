@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jul 29 04:31:05 2020
-
-@author: Rayvant Sahni
-"""
-
 def linear_search(list_to_search, value_to_find):
     
     for index in range(len(list_to_search)):
