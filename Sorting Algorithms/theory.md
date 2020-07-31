@@ -7,3 +7,6 @@ Merge Sort has the best, worst, and average time complexity all the same as `Θ(
 
 - ### Quick Sort:
 Quicksort is an efficient recursive algorithm for sorting arrays or lists of values. The algorithm is a _comparison_ sort, where values are ordered by a comparison operation such as **>** or **<**. Quicksort is an unusual algorithm in that the worst case runtime is `O(N^2)`, but the average case is `O(N*log(N))`.
+
+
+![image](https://user-images.githubusercontent.com/38404580/89080769-738f6d00-d3a7-11ea-861d-d5bf3faaa3bf.png)
