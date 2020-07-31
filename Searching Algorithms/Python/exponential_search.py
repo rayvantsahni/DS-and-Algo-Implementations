@@ -3,7 +3,7 @@
 # where, i is the index of the element being searched for.
 # This is better than O(log n)
 # where, n is the number of elements in the array.
-# Hence this is better than Binary Search.
+# Hence, this performs better than Binary Search.
 # =============================================================================
 
 def exponential_search(search_list, left, right, target):
