@@ -1,3 +1,11 @@
+# =============================================================================
+# Complexity of this algortihm is O(log i)
+# where, i is the index of the element being searched for.
+# This is better than O(log n)
+# where, n is the number of elements in the array.
+# Hence this is better than Binary Search.
+# =============================================================================
+
 def exponential_search(search_list, left, right, target):
     if search_list[0] == target:
         return "Found at 0"
