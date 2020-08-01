@@ -1,4 +1,6 @@
 # Sorting Algorithms
+
+https://www.toptal.com/developers/sorting-algorithms
 - ### Bubble Sort:
 Bubble sort is an algorithm to sort a list through repeated swaps of adjacent elements. It has a runtime of `O(N^2)`.
 
