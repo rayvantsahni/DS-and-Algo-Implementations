@@ -1,6 +1,5 @@
 # Sorting Algorithms
 
-https://www.toptal.com/developers/sorting-algorithms
 - ### Bubble Sort:
 Bubble sort is an algorithm to sort a list through repeated swaps of adjacent elements. It has a runtime of `O(N^2)`.
 
@@ -14,5 +13,4 @@ Quicksort is an efficient recursive algorithm for sorting arrays or lists of val
 _A radix is the base of a number system. For the decimal number system, the radix is 10_.
 The most amazing feature of radix sort is that it manages to sort a list of integers without performing any comparisons whatsoever. We call this a non-comparison sort. The complexity of radix sort is `O(wn)` where, **w is the average number of digits or the _word-size_**. Assuming the length of the list is much larger than the number of digits, we can consider **w a constant factor** and this can be reduced to `O(n)`.
 
-
-![image](https://user-images.githubusercontent.com/38404580/89080769-738f6d00-d3a7-11ea-861d-d5bf3faaa3bf.png)
+For some great visualization of the sorting algortithms, click [here](https://www.toptal.com/developers/sorting-algorithms).
