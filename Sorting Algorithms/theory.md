@@ -14,4 +14,4 @@ _A radix is the base of a number system. For the decimal number system, the radi
 The most amazing feature of radix sort is that it manages to sort a list of integers without performing any comparisons whatsoever. We call this a non-comparison sort. The complexity of radix sort is `O(wn)` where, **w is the average number of digits or the _word-size_**. Assuming the length of the list is much larger than the number of digits, we can consider **w a constant factor** and this can be reduced to `O(n)`.
 
 
-#### For some great visualization of the sorting algortithms, click [here](https://www.toptal.com/developers/sorting-algorithms).
+### For some great visualization of the sorting algortithms, click [here](https://www.toptal.com/developers/sorting-algorithms).
