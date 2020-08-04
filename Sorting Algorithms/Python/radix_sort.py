@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Aug  2 04:05:05 2020
-
-@author: Rayvant Sahni
-"""
-
 def radix_sort(arr):
     max_number = max(arr) #finding the number with the maximum number of digits
     arr_copy = arr[:] #making a copy of the original list
