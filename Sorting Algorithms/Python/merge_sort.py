@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 31 21:10:08 2020
-
-@author: Rayvant Sahni
-"""
-
 # =============================================================================
 # Complexity if Merge sort is O(N*log(N)).
 # Space Complexity is O(N).
