@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Aug  5 14:22:35 2020
-
-@author: Rayvant Sahni
-"""
-
 def heapify(arr, n, root):
     maximum = root #assuming the root has the maximum value in this heap as of now
     left = 2 * root + 1 #defining the left child index of the root node
@@ -41,8 +34,3 @@ def main():
     
 
 main()
-
-
-
-
-
