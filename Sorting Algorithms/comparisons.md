@@ -1,5 +1,5 @@
 # Merge Sort vs Quick Sort vs Heap Sort
-* time complexity: As already discussed in the other answers, the three algorithms are in average case O(nlogn) while quick sort worst case is O(n2).
+* time complexity: As already discussed in the other answers, the three algorithms are in average case O(n.logn) while quick sort worst case is O(n^2).
 * space complexity: especially if it's in-place sort Heap sort and quick sort can be done in-place. So they can directly work on the pre-allocated space where initial unsorted data is stored. While heap sort removes recursive calls by tail optimization and its space requirement is O(1), quick sort requires variables put on the stacks at each recursive step, so it requires in total O(logn) space. Merge sort is not in-place and requires additional O(n) space.
 * external sort or not: This means whether the algorithm works efficiently with external memory (e.g. HDD/SSD) which is slower than the main memory. Merge sort and quick sort are typical external sort since they can divide target data set and work on the small pieces loaded on memory, but heap sort is difficult to do that.
 * stable or unstable: Merge sort is only the stable sorting among the three.
@@ -18,3 +18,5 @@ Most commercial applications would use quicksort for its better average performa
 However, **quick sort should never be used in applications which require a guarantee of response time**, unless it is treated as an `O(n^2)` algorithm in calculating the worst-case response time. If you have to assume `O(n^2)` time, then - if _n_ is small, you're better off using **insertion sort - which has simpler code and therefore smaller constant factors**.
 
 And if _n_ is large, you should obviously be using **heap sort**, for its guaranteed `O(n.log(n))` time. Life-critical (medical monitoring, life support in aircraft and space craft) and mission-critical (monitoring and control in industrial and research plants handling dangerous materials, control for aircraft, defence, etc) software will generally have a response time as part of the system specifications. In all such systems, it is not acceptable to design based on average performance, you must always allow for the worst case, and thus treat quicksort as `O(n^2)`.
+
+For source, click [here](https://www.cs.auckland.ac.nz/software/AlgAnim/qsort3.html).
