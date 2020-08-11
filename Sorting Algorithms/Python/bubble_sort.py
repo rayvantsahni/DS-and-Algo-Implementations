@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jul 31 14:51:49 2020
-
-@author: Rayvant Sahni
-"""
-
 # =============================================================================
 # Complexity of Bubble sort is originally O((N)*(N-1)) i.e O(N^2)
 # Although it can be reduced to O((N)*(N-1)/2),
@@ -31,5 +24,4 @@ def main():
     print("Unsorted:", a, end = "\n\n")
     print("Sorted:", bubble_sort(a), end = "\n\n")
     
-
 main()
