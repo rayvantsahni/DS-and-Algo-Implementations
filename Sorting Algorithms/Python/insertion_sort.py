@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Aug  3 00:37:05 2020
-
-@author: Rayvant Sahni
-"""
 # =============================================================================
 # Insertion Sort is Stable.
 # Complexity is O(N^2).
