@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Sep 14 04:02:24 2020
-@author: Rayvant Sahni
-"""
-
 def dfs(graph, start, destination):
     return _dfs(graph, start, destination, [start])
 
