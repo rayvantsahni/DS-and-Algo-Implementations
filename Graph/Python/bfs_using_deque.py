@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Sep 12 04:28:11 2020
-
-@author: Rayvant Sahni
-"""
-    
 from collections import deque
 
 def bfs(start, destination, graph):
@@ -44,34 +37,16 @@ def find_shortest_path(destination, parent):
     return list(path)
     
 
-
-graph_d = {
-  'A' : ['C'],
-  'B' : ['A', 'D', 'E'],
-  'C' : ['F'],
-  'D' : [],
-  'E' : ['F'],
-  'F' : ['B']
-}
-
-graph_e = {
-  'A' : ['B','C'],
-  'B' : ['D', 'E'],
-  'C' : ['F'],
-  'D' : [],
-  'E' : ['F'],
-  'F' : []
-}
-
-graph_a = {'A': set(['B']),
-           'B': set(['A', 'D', 'E']),
-           'C': set(['A', 'F']),
-           'D': set(['B', 'C']),
-           'E': set(['B']),
-           'F': set(['C', 'E'])}
     
            
 if __name__ == "__main__":
+
+    graph_a = {'A': set(['B']),
+               'B': set(['A', 'D', 'E']),
+               'C': set(['A', 'F']),
+               'D': set(['B', 'C']),
+               'E': set(['B']),
+               'F': set(['C', 'E'])}    
     
     print("Shortest path from A to F is -")
     print(bfs('A', 'F', graph_a))
