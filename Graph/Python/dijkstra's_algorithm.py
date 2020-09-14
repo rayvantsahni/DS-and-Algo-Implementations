@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Sep 14 23:33:13 2020
-
-@author: Rayvant Sahni
-"""
-
 from heapq import heappop, heappush
 from math import inf
 
