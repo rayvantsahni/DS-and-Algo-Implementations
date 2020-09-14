@@ -1,0 +1,17 @@
+create dictionary to map vertices to their distance from start vertex
+
+assign start vertex a distance of 0 in min heap
+
+assign every other vertex a distance of infinity in min heap
+
+remove the vertex with the minimum distance from the min heap and set it to the current vertex
+
+while min heap is not empty:
+  for each current vertex:
+    for each neighbor in neighbors:
+    new distance = (distance to current vertex) + (edge weight of current vertex to neighbor)
+
+    if new distance is less than its current distance:
+      current distance = new distance
+
+return distances
