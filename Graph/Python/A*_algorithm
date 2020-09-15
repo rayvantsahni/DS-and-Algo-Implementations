@@ -1,0 +1,178 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Sep 14 23:49:58 2020
+
+@author: Rayvant Sahni
+"""
+
+from heapq import heappop, heappush
+from math import inf
+        
+
+def heuristic(start, target):
+    x_dist = abs(start.position[0] - target.position[0]) ** 2
+    y_dist = abs(start.position[1] - target.position[1]) ** 2
+    return (x_dist + y_dist) ** .5
+
+
+def a_star(graph, start, target):
+    print("This is the A* algorithm!")
+    
+    paths_and_distances = {}
+    
+    for vertex in graph:
+        paths_and_distances[vertex] = [inf, [start.name]]
+        
+    paths_and_distances[start][0] = 0
+    unexplored = [(0, start)]
+    
+    while unexplored:
+        current_distance, current_node = heappop(unexplored)
+            
+        for adjacent, edge_weight in graph[current_node]:
+            new_distance = current_distance + edge_weight + heuristic(adjacent, target)
+            new_path = paths_and_distances[current_node][1] + [adjacent.name]
+            
+            if new_distance < paths_and_distances[adjacent][0]:
+                paths_and_distances[adjacent][0] = new_distance
+                paths_and_distances[adjacent][1] = new_path
+                heappush(unexplored, (new_distance, adjacent))
+                
+    return paths_and_distances[target][1]
+
+
+
+
+class Vertex:
+    def __init__(self, name, x_position, y_position):
+        self.name = name
+        self.position = (x_position, y_position)
+
+
+delhi = Vertex("New Delhi", 28.6448, 77.216721)
+jaipur = Vertex("Jaipur", 26.92207, 75.778885)
+varanasi = Vertex("Varanasi", 25.321684, 82.987289)
+mumbai = Vertex("Mumbai", 19.07283, 72.88261)
+chennai = Vertex("Chennai", 13.067439, 80.237617)
+hyderabad = Vertex("Hyderabad", 17.387140, 78.491684)
+kolkata = Vertex("Kolkata", 22.572645, 88.363892)
+bengaluru = Vertex("Bengaluru", 12.972442, 77.580643)
+
+
+india_graph = {
+  delhi: 
+  set([(jaipur, 2.243918), (varanasi, 6.65902), (mumbai, 10.507479), (chennai, 15.867576), (hyderabad, 11.329626), (kolkata, 12.693718), (bengaluru, 15.676582)]),
+  jaipur: 
+  set([(mumbai, 8.366539), (delhi, 2.243918)]),
+  varanasi: 
+  set([(delhi, 6.65902), (mumbai, 11.88077)]),
+  mumbai: 
+  set([(delhi, 10.507479), (jaipur, 8.366539), (varanasi, 11.88077), (hyderabad, 5.856898), (kolkata, 15.87195), (bengaluru, 7.699756)]),
+  chennai: 
+  set([(delhi, 15.867576), (kolkata, 12.50541), (hyderabad, 4.659195), (bengaluru, 2.658671)]),
+  hyderabad: 
+  set([(delhi, 11.329626), (mumbai, 5.856898), (chennai, 4.659195), (bengaluru, 4.507721), (kolkata, 11.151231)]),
+  kolkata: 
+  set([(delhi, 12.693718), (mumbai, 15.87195), (chennai, 12.50541), (hyderabad, 11.151231), (bengaluru, 14.437532)]),
+  bengaluru: 
+  set([(delhi, 15.676582), (mumbai, 7.699756), (chennai, 2.658671), (hyderabad, 4.507721), (kolkata, 14.437532)])
+              }
+
+    
+    
+    
+thirty_third_and_madison = Vertex("33rd Street and Madison Avenue", 33, 4)
+thirty_third_and_fifth = Vertex("33rd Street and 5th Avenue", 33, 5)
+manhattan_mall = Vertex("Manhattan Mall", 33, 6)
+penn_station = Vertex('Penn Station', 33, 7)
+thirty_fourth_and_madison = Vertex("34th Street and Madison Avenue", 34, 4)
+empire_state_building = Vertex('Empire State Building', 34, 5)
+herald_square = Vertex('Herald Square', 34, 6)
+thirty_fourth_and_seventh = Vertex("34th Street and 7th Avenue", 34, 7)
+thirty_fifth_and_madison = Vertex("35th Street and Madison Avenue", 35, 4)
+cuny_grad_center = Vertex("CUNY Graduate Center", 35, 5)
+thirty_fifth_and_sixth = Vertex("35th Street and 6th Avenue", 35, 6)
+macys = Vertex("Macy's", 35, 7)
+thirty_sixth_and_madison = Vertex("36th Street and Madison Avenue", 36, 4)
+thirty_sixth_and_fifth = Vertex("36th Street and 5th Avenue", 36, 5)
+thirty_sixth_and_sixth = Vertex("36th Street and 6th Avenue", 36, 6)
+thirty_sixth_and_seventh = Vertex("36th Street and 7th Avenue", 36, 7)
+morgan_library = Vertex("Morgan Library and Museum", 37, 4)
+thirty_seventh_and_fifth = Vertex("37th Street and 5th Avenue", 37, 5)
+thirty_seventh_and_sixth = Vertex("37th Street and 6th Avenue", 37, 6)
+thirty_seventh_and_seventh = Vertex("37th Street and 7th Avenue", 37, 7)
+thirty_eighth_and_madison = Vertex("38th Street and Madison Avenue", 38, 4)
+thirty_eighth_and_fifth = Vertex("38th Street and Fifth Avenue", 38, 5)
+thirty_eighth_and_sixth = Vertex("38th Street and Sixth Avenue", 38, 6)
+thirty_eighth_and_seventh = Vertex("38th Street and Seventh Avenue", 38, 7)
+mexican_consulate = Vertex("Mexican Consulate General", 39, 4)
+thirty_ninth_and_fifth = Vertex("39th Street and Fifth Avenue", 39, 5)
+thirty_ninth_and_sixth = Vertex("39th Street and Sixth Avenue", 39, 6)
+thirty_ninth_and_seventh = Vertex("39th Street and Seventh Avenue", 39, 7)
+fortieth_and_madison = Vertex("40th Street and Madison Avenue", 40, 4)
+fortieth_and_fifth = Vertex("40th Street and Fifth Avenue", 40, 5)
+bryant_park_south = Vertex("Bryant Park South", 40, 6)
+times_square_south = Vertex("Times Square - South", 40, 7)
+forty_first_and_madison = Vertex("41st Street and Madison Avenue", 41, 4)
+mid_manhattan_library = Vertex("Mid-Manhattan Library", 41, 5)
+kinokuniya = Vertex("Kinokuniya", 41, 6)
+times_square = Vertex("Times Square", 41, 7)
+grand_central_station = Vertex("Grand Central Station", 42, 4)
+library = Vertex("New York Public Library", 42, 5)
+bryant_park_north = Vertex("Bryant Park North", 42, 6)
+times_square_north = Vertex("Times Square - North", 42, 7)
+
+
+us_graph = {
+  thirty_third_and_madison: set([(thirty_fourth_and_madison, 1), (thirty_third_and_fifth, 3)]),
+  thirty_third_and_fifth: set([(thirty_third_and_madison, 3), (manhattan_mall, 3), (empire_state_building, 1)]),
+  manhattan_mall: set([(thirty_third_and_fifth, 3), (penn_station, 3), (herald_square, 1)]),
+  penn_station: set([(manhattan_mall, 3), (thirty_fourth_and_seventh, 1)]),
+  thirty_fourth_and_madison: set([(thirty_third_and_madison, 1), (empire_state_building, 3), (thirty_fifth_and_madison, 1)]),
+  empire_state_building: set([(thirty_fourth_and_madison, 3), (herald_square, 3), (thirty_third_and_fifth, 1), (cuny_grad_center, 1)]),
+  herald_square: set([(empire_state_building, 3), (thirty_fourth_and_seventh, 3), (manhattan_mall, 1), (thirty_fifth_and_sixth, 1)]),
+  thirty_fourth_and_seventh: set([(herald_square, 3), (macys, 1), (penn_station, 1)]),
+  thirty_fifth_and_madison: set([(thirty_fourth_and_madison, 1), (thirty_sixth_and_madison, 1), (cuny_grad_center, 3)]),
+  cuny_grad_center: set([(thirty_fifth_and_madison, 3), (thirty_fifth_and_sixth, 3), (empire_state_building, 1), (thirty_sixth_and_fifth, 1)]),
+  thirty_fifth_and_sixth: set([(cuny_grad_center, 3), (macys, 3), (herald_square, 1), (thirty_sixth_and_sixth, 1)]),
+  macys: set([(thirty_fifth_and_sixth, 3), (thirty_fourth_and_seventh, 1), (thirty_sixth_and_seventh, 1)]),
+  thirty_sixth_and_madison: set([(thirty_sixth_and_fifth, 3), (thirty_fifth_and_madison, 1), (morgan_library, 1)]),
+  thirty_sixth_and_fifth: set([(thirty_sixth_and_madison, 3), (thirty_sixth_and_sixth, 3), (cuny_grad_center, 1), (thirty_seventh_and_fifth, 1)]),
+  thirty_sixth_and_sixth: set([(thirty_sixth_and_fifth, 3), (thirty_sixth_and_seventh, 3), (thirty_fifth_and_sixth, 1), (thirty_seventh_and_sixth, 1)]),
+  thirty_sixth_and_seventh: set([(thirty_sixth_and_sixth, 3), (macys, 1), (thirty_seventh_and_seventh, 1)]),
+  morgan_library: set([(thirty_seventh_and_fifth, 3), (thirty_sixth_and_madison, 1), (thirty_eighth_and_madison, 1)]),
+  thirty_seventh_and_fifth: set([(morgan_library, 3), (thirty_seventh_and_sixth, 3), (thirty_sixth_and_fifth, 1), (thirty_eighth_and_fifth, 1)]),
+  thirty_seventh_and_sixth: set([(thirty_seventh_and_fifth, 3), (thirty_seventh_and_seventh, 3), (thirty_sixth_and_sixth, 1)]),
+  thirty_seventh_and_seventh: set([(thirty_seventh_and_sixth, 3), (thirty_sixth_and_seventh, 1), (thirty_eighth_and_seventh, 1)]),
+  thirty_eighth_and_madison: set([(thirty_eighth_and_fifth, 3), (morgan_library, 1), (mexican_consulate, 1)]),
+  thirty_eighth_and_fifth: set([(thirty_eighth_and_madison, 3), (thirty_eighth_and_sixth, 3), (thirty_seventh_and_fifth, 1), (thirty_ninth_and_fifth, 1)]),
+  thirty_eighth_and_sixth: set([(thirty_eighth_and_fifth, 3), (thirty_eighth_and_seventh, 3), (thirty_seventh_and_sixth, 1), (thirty_ninth_and_sixth, 1)]),
+  thirty_eighth_and_seventh: set([(thirty_eighth_and_sixth, 3), (thirty_seventh_and_seventh, 1), (thirty_ninth_and_seventh, 1)]),
+  mexican_consulate: set([(thirty_ninth_and_fifth, 3), (thirty_eighth_and_madison, 1), (fortieth_and_madison, 1)]),
+  thirty_ninth_and_fifth: set([(mexican_consulate, 3), (thirty_ninth_and_sixth, 3), (thirty_eighth_and_fifth, 1), (fortieth_and_fifth, 1)]),
+  thirty_ninth_and_sixth: set([(thirty_ninth_and_fifth, 3), (thirty_ninth_and_seventh, 3), (thirty_eighth_and_sixth, 1), (bryant_park_south, 1)]),
+  thirty_ninth_and_seventh: set([(thirty_ninth_and_sixth, 3), (thirty_eighth_and_seventh, 1), (times_square_south, 1)]),
+  fortieth_and_madison: set([(fortieth_and_fifth, 3), (mexican_consulate, 1), (forty_first_and_madison, 1)]),
+  fortieth_and_fifth: set([(fortieth_and_madison, 3), (bryant_park_south, 3), (thirty_ninth_and_fifth, 1)]),
+  bryant_park_south: set([(fortieth_and_fifth, 3), (times_square_south, 3), (thirty_ninth_and_sixth, 1), (kinokuniya, 1)]),
+  times_square_south: set([(bryant_park_south, 3), (times_square, 1), (thirty_ninth_and_seventh, 1)]),
+  forty_first_and_madison: set([(fortieth_and_madison, 1), (grand_central_station, 1), (mid_manhattan_library, 3)]),
+  mid_manhattan_library: set([(forty_first_and_madison, 3), (library, 1), (fortieth_and_fifth, 1)]),
+  kinokuniya: set([(times_square, 3), (bryant_park_north, 1), (bryant_park_south, 1)]),
+  times_square: set([(kinokuniya, 3), (times_square_north, 1), (times_square_south, 1)]),
+  grand_central_station: set([(library, 3), (forty_first_and_madison, 1)]),
+  library: set([(mid_manhattan_library, 1), (grand_central_station, 3), (bryant_park_north, 3)]),
+  bryant_park_north: set([(library, 3), (times_square_north, 3), (bryant_park_south, 1)]),
+  times_square_north: set([(times_square, 1), (bryant_park_north, 3)])
+}
+
+
+
+
+
+if __name__ == "__main__":
+    for node in a_star(india_graph, kolkata, varanasi):
+        print(node)
+    print()
+    for node in a_star(us_graph, thirty_sixth_and_sixth, grand_central_station):
+        print(node)
