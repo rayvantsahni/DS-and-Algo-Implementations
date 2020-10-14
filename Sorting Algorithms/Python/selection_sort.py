@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Aug  4 04:20:32 2020
-
-@author: Rayvant Sahni
-"""
-
 def selection_sort(arr):
     for sorted_till in range(len(arr)-1): #keeps track of the position before which all elements are sorted
         min_index = sorted_till #taking the first element in the unsorted part as the index with the minimum value
