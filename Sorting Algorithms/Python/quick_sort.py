@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Aug  1 04:58:00 2020
-
-@author: Rayvant Sahni
-"""
 # =============================================================================
 # Worst case complexity of this is O(N^2).
 # But, in the case of Quick Sort we ususally consider the Average case, i.e O(N*log(N))
