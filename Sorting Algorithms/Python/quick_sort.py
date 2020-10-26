@@ -18,7 +18,7 @@
 # or equal to the pivot.
 # And hence, naturally all elements to the right would be greater than the pivot.
 # This partition helps us to decide the perfect position of the pivot in this
-# unsorted array, as it shoudl be placed right in between all elements smaller to it 
+# unsorted array, as it should be placed right in between all elements smaller to it and
 # all elements greater to it.
 # So in other words we sandwich the pivot in between those 2 partitions and hence 
 # we can claim that at the moment the pivot is in its right position in the list, 
