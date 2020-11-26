@@ -1,13 +1,11 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-class Main
+public class Main
 {
     public static void incrementInArray(int[] arr, int size, int[] q) {
         arr[q[0]]++;
-        if (q[1] >= size)
-            arr[size - 1]--;
-        else
+        if (q[1] + 1 < size)
             arr[q[1] + 1]--;
     }
 
