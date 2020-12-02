@@ -1,11 +1,11 @@
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+# class LinkedListNode:
+#     def __init__(self, value = 0, next = None):
+#         self.value = value
+#         self.next = next
 
 class Solution:
-    def hasCycle(self, head: ListNode) -> bool:
+    def containsCycle(self, head):
         if not head or not head.next:
             return False
         
