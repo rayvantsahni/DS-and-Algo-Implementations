@@ -1,45 +1,43 @@
-import java.util.*;
+import java.text.MessageFormat;
+import java.util.Arrays;
 
-class QuickSort
-{
-    public static void quickSort(int[] arr, int start, int end) {
-        if (start >= end)
+public class Main {
+    public static void quickSort(int[] arr) {
+        quickSort(arr, 0, arr.length - 1);
+    }
+
+    public static void quickSort(int[] arr, int left, int right) {
+        if (left >= right)
             return;
+        
+        int randomIndex = left + (int)(Math.random() * (right - left + 1));
+        swap(arr, randomIndex, right);
+        int pivotIndex = right;
+        int partitionIndex = left;
+        
+        for (int i = left; i < right; i++)
+            if (arr[i] <= arr[pivotIndex])
+                swap(arr, i, partitionIndex++);
 
-        int randomIndex = random(start, end);
-        swap(arr, randomIndex, end);
-        int pivot = end;
-        int partitionPoint = start;
+        swap(arr, partitionIndex, right);
 
-        for (int i = start; i < end; i++) {
-            if (arr[i] <= arr[pivot]) {
-                swap(arr, i, partitionPoint);
-                partitionPoint++;
-            }
-        }
-
-        swap(arr, partitionPoint, end);
-
-        quickSort(arr, start, partitionPoint - 1);
-        quickSort(arr, partitionPoint + 1, end);
+        quickSort(arr, left, partitionIndex - 1);
+        quickSort(arr, partitionIndex + 1, right);
     }
 
-
-    private static int random(int max, int min) {
-        return (int) (Math.random() * (max - min + 1) + min);
+    private static void swap(int[] arr, int firstIndex, int secondIndex) {
+        if (firstIndex == secondIndex)
+            return;
+        int temp = arr[firstIndex];
+        arr[firstIndex] = arr[secondIndex];
+        arr[secondIndex] = temp;
     }
-
-
-    private static void swap(int[] arr, int a, int b) {
-        int temp = arr[a];
-        arr[a] = arr[b];
-        arr[b] = temp;
-    }
-
 
     public static void main(String[] args) {
-        int[] array = {20, 5, 10, 25, 19, 16, 4, 0, 2, 11};
-        quickSort(array, 0, array.length - 1);
-        System.out.println(Arrays.toString(array));
+        int[] arr = {8,1,2,4,9,7,6,3};
+        System.out.println(MessageFormat.format("Before Sorting: {0}",Arrays.toString(arr)));
+
+        quickSort(arr);
+        System.out.println(MessageFormat.format("After Sorting: {0}",Arrays.toString(arr)));
     }
 }
