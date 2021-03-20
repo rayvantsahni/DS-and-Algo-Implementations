@@ -35,9 +35,9 @@ public class Main {
 
     public static void main(String[] args) {
         int[] arr = {8,1,2,4,9,7,6,3};
-        System.out.println(MessageFormat.format("Before Sorting: {0}",Arrays.toString(arr)));
+        System.out.println(MessageFormat.format("Before Sorting: {0}", Arrays.toString(arr)));
 
         quickSort(arr);
-        System.out.println(MessageFormat.format("After Sorting: {0}",Arrays.toString(arr)));
+        System.out.println(MessageFormat.format("After Sorting: {0}", Arrays.toString(arr)));
     }
 }
