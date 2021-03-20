@@ -43,7 +43,7 @@ public class Main
     }
 
     public static void main(String[] args) {
-int[] arr = {6,4,3,9,1,8,5,7};
+        int[] arr = {6,4,3,9,1,8,5,7};
         System.out.println(MessageFormat.format("Before Sorting: {0}", Arrays.toString(arr)));
 
         mergeSort(arr);
