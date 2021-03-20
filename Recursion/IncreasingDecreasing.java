@@ -1,34 +1,24 @@
 public class Main
 {
     public static void decreasing(int n) {
-        if (n == 1) {
-            System.out.println(n);
+        if (n == 0)
             return;
-        }
-
         System.out.print(n + " ");
         decreasing(n - 1);
     }
 
     public static void increasing(int n) {
-        increasing(1, n);
-    }
-
-    public static void increasing(int n, int target) {
-        if (n == target) {
-            System.out.println(n);
+        if (n == 0)
             return;
-        }
-
+        increasing(n - 1);
         System.out.print(n + " ");
-        increasing(n + 1, target);
     }
 
     public static void main(String[] args) {
         int n = 7;
-        System.out.print("Increasing --> ");
+        System.out.print("\nIncreasing --> ");
         increasing(n);
-        System.out.print("Decreasing --> ");
+        System.out.print("\nDecreasing --> ");
         decreasing(n);
 
     }
