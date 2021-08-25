@@ -1,1 +1,1 @@
-# `Structures of Data and rhythms of Algo`
+# `structures of Data and rhythms of Algo`
